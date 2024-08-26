@@ -1,0 +1,330 @@
+form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+    padding: 0 10px
+}
+.create-form {
+    background-color: rgb(154, 195, 255);
+    max-width: 550px;
+    margin: 30px auto;
+    padding: 20px;
+}
+.create-form h1 {
+    font-size: 40px;
+}
+form label {
+    display: block;
+    text-align: left;
+}
+form input, form .input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    margin: 14px 0;
+    padding: 8px 10px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.password-input {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    border: 1px solid #ddd;
+    align-items: center;
+    margin: 14px 0;
+}
+.password-input input {
+    border: none;
+    margin: 0px;
+}
+.password-input .eye-icon {
+    padding: 5px 10px;
+    display: block;
+    cursor: pointer;
+}
+form .select {
+    text-align: left;
+    margin: 14px 0;
+}
+.button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(0, 118, 228);
+    color: #ffffff;
+    font-size: 18px;
+    margin: 10px 0;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.3s;
+}
+.button:hover {
+    transition-duration: 0.3s;
+    background-color: rgb(0, 109, 211);
+    box-shadow: 0 4px 10px -2px rgba(128, 128, 128, 0.35);
+
+}
+form .button {
+    margin: 10px 0;
+}
+.button {
+    margin: 10px 5px;
+    box-shadow: 0 4px 0 -2px rgba(128, 128, 128, 0.288);
+}
+form input[type=number]::-webkit-inner-spin-button, 
+form input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    appearance: none; 
+}
+.create-item {
+    background-color: rgb(255, 198, 198);
+}
+.create-item button {
+    background-color: rgb(255, 0, 0);
+}
+.create-item button:hover {
+    background-color: rgb(255, 74, 74);
+}
+.not-found {
+    margin: 30px 0;
+}
+.items-page .conditions {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin: 25px auto;
+    padding: 4px 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 6px 0px rgba(63, 63, 63, 0.3);
+    max-width: 400px;
+    padding: 20px 30px;
+    margin-top: 40px;
+}
+.items-page .conditions .input-field {
+    margin-top: 10px;
+    text-align: left;
+    width: auto;
+}
+.items-page .conditions label {
+    text-align: left;
+    margin-bottom: 15px;
+}
+.items-page .items-list {
+    padding: 0 10px;
+    max-width: 1000px;
+    margin: auto;
+}
+.center-text {
+    display: inline-flex;
+}
+.regular-link {
+    text-decoration: none;
+    color: #006eff;
+    cursor: pointer;
+}
+.regular-link:hover {
+    text-decoration: underline;
+}
+.full-name-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.full-name-input > *{
+    width: auto;
+}
+.bold-text {
+	font-weight: bold;
+}
+.image-preview {
+    user-select: none;
+}
+
+/* Form */
+
+form .button-row {
+    display: flex;
+    column-gap: 10px;
+    margin-bottom: 25px;
+}
+form .button-row > .button {
+    margin: 0;
+    text-justify: center;
+}
+form .button-row .big-button {
+    width: 100%;
+    padding: 10px 20px;
+}
+form .delete-button {
+    background-color: rgb(223, 0, 0);
+    align-items: center;
+    display: flex;
+    width: 60px;
+    margin: 0;
+    justify-content: center;
+    padding: 0;
+}
+form .delete-button:hover {
+    background-color: rgb(194, 0, 0);
+}
+form .delete-button .icon {
+    font-size: 25px;
+    /* padding-right: 10px; */
+}
+form .input-field {
+    margin-bottom: 15px;
+    text-align: left;
+}
+form .switches-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* User page */
+
+.user-page .upper-info {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 20px 0;
+    flex-flow: row wrap;
+
+}
+.user-page .upper-info .image-preview {
+    margin: 20px;
+    width: 150px;
+    height: 150px;
+}
+.user-page .upper-info .image-preview img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    box-shadow: 0 0 6px 0px rgba(63, 63, 63, 0.5);
+}
+.user-page .upper-info .user-info {
+    padding: 0 30px;
+    text-align: left;
+}
+.user-page .upper-info .user-info h1 {
+    color: #292929;
+}
+.user-page .upper-info .user-info .bio {
+    white-space: pre-line;
+    margin: 25px 0;
+    font-size: 1.1em;
+}
+.user-page .upper-info .edit-icon {
+    margin: 20px;
+}
+.user-page .upper-info .myUser-info {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.user-page .upper-info .myUser-info > * {
+    margin-bottom: 5px;
+}
+
+/* Login page */
+
+.login-page h1 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+.login-page .login-button {
+    margin: 0;
+    margin-bottom: 15px;
+}
+.login-page .logo img {
+    height: 100%;
+}
+.login-page .logo {
+    margin-top: 70px;
+    margin-bottom: 50px;
+    height: 60px;
+}
+.login-page form {
+    max-width: 500px;
+    width: auto;
+}
+.login-page .d-row {
+    display: flex;
+    justify-content: space-between
+}
+.or-line {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #b6b6b6; 
+    line-height: 0.1em;
+    margin: 30px 0;
+
+} 
+.or-line span { 
+    background:#fff; 
+    padding: 0 10px;
+    color: #555555;
+    font-size: 1em;
+}*, *:before, *:after {
+    box-sizing: border-box;
+}
+.g-sign-in-button {
+    margin: 10px 0;
+    background-color: #d4d4d4;
+    height: 50px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 5px;
+}
+.g-sign-in-button:hover {
+    background-color: #cecece;
+    transition: 0.3s;
+    box-shadow: 0 0 5px 0px rgba(131, 131, 131, 0.349);
+}
+.g-sign-in-button img {
+    width: 40px;
+}
+.g-sign-in-button span {
+    font-size: 1em;
+    margin-left: 15px;
+    margin-right: 143px;
+}
+@media screen and (max-width: 500px) {
+    .g-sign-in-button {
+        width: 300px;
+        margin: 10px auto;
+    }
+    .g-sign-in-button span {
+        margin: 0;
+        margin-right: 50px;
+    }
+    .login-page .d-row {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 5px;
+    }
+}
+
+/* home */
+
+.home-page .liked-products .title-info label {
+    cursor: default;
+}
+.home-page .liked-products .title-info a {
+    cursor: default;
+}
+
