@@ -861,6 +861,9 @@
     display: flex;
     flex-flow: row wrap;
 }
+.cards-list .no-elements {
+    margin: 0 20px;
+}
 
 /* SlideSystem */
 

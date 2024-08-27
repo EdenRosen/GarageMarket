@@ -10,11 +10,10 @@ const useDatabase = () => {
 const DatabaseProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
-    const db_url = import.meta.env.VITE_DATABASE_URL
-    const { data: usersFetched, loading: l1, error: e1, refetch: refetchUsers } = useFetch(db_url+'/users')
-    const { data: shopsFetched, loading: l2, refetch: refetchShops } = useFetch(db_url+'/shops')
-    const { data: itemsFetched, loading: l3, refetch: refetchItems } = useFetch(db_url+'/items')
-    const { data: categoriesFetched, loading: l4, refetch: refetchCategories } = useFetch(db_url+'/categories')
+    const { data: usersFetched, loading: l1, error: e1, refetch: refetchUsers } = useFetch('/users')
+    const { data: shopsFetched, loading: l2, refetch: refetchShops } = useFetch('/shops')
+    const { data: itemsFetched, loading: l3, refetch: refetchItems } = useFetch('/items')
+    const { data: categoriesFetched, loading: l4, refetch: refetchCategories } = useFetch('/categories')
     const [items, setItems] = useState()
     const [shops, setShops] = useState()
     const [users, setUsers] = useState()

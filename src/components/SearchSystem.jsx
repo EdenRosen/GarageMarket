@@ -27,7 +27,7 @@ const SearchSystem = ({ elements, Card, name, align='cards-left', shopStyle=null
                         </div>
                     ))}
                     { filteredElements.length === 0 &&
-                    <div>
+                    <div className='no-elements'>
                         { elements.length === 0 &&
                             <p>No {name} exist</p>
                         }

@@ -14,7 +14,6 @@ import {
 import { useCookies } from 'react-cookie'
 import axios from '../services/api'
 
-
 const AuthContext = createContext()
 
 const useAuth = () => useContext(AuthContext)
@@ -23,7 +22,7 @@ const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const [cookies, setCookie, removeCookie] = useCookies(['jwt_authorization'])
-    
+
 
     function getToken() {
         return cookies['jwt_authorization']
@@ -39,15 +38,19 @@ const AuthProvider = ({ children }) => {
             // const credential = GoogleAuthProvider.credentialFromResult(result)
             const user = result.user
             user.getIdToken().then(token => {
+                console.log(1111);
+                console.log(user);
+                
                 axios.post(
                     `register-google`,
                     { email: user.email },
                     { headers: { Authorization: `Bearer ${token}` } },
-                ).then(() => {
-                    return true
-                }).catch(() => {
-                    return false
-                })
+                ).then(res => {
+                    const appUser = res.data
+                    appUser.uid = user.uid
+                    setCurrentUser(appUser)
+                    window.location.reload()
+                }).catch(() => {})
             })
         }).catch((error) => {
             // Handle Errors here.
@@ -58,7 +61,6 @@ const AuthProvider = ({ children }) => {
             // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
             console.log(errorMessage, email, credential);
-            return false
         })
     }
 
@@ -73,8 +75,10 @@ const AuthProvider = ({ children }) => {
                     'users'
                 )
                 .then(res => {
+                    console.log(11117);
                     const users = res.data
                     var appUser = users.find(e => e.email === user.email)
+                    if (!appUser) return
                     appUser.uid = user.uid
                     setCurrentUser(appUser)
                     user.getIdToken().then(token => {
