@@ -86,6 +86,7 @@ const Shop = () => {
     const shopTexts = JSON.parse(shop.texts)
     const user = users.find(e => e.id === shop.UserId)
     const shopItems = items.filter(e => e.ShopId.toString() === id)
+    const imageURL = imageBufferToUrl(shop.banner)
     var thisUser = null
     var myShop = false
 
@@ -97,8 +98,6 @@ const Shop = () => {
     if (!itemAlign && shopStyle?.itemAlign) setItemAlign(shopStyle.itemAlign)
     if (!bannerColor && shopStyle?.bannerColor) setBannerColor(shopStyle.bannerColor)
 
-
-    const imageURL = imageBufferToUrl(shop.banner)
 
     const handleDelete = e => {
         if (collection) {
@@ -228,6 +227,16 @@ const Shop = () => {
                             <Link to={`/shop/${id}/create-item`} className='button big-button'>Add Item</Link>
                             <Link to={`/shop/${id}/create-collection`} className='button big-button'>Add collection</Link>
                         </div>
+                        { errorMessage && <AlertMessage text={ errorMessage } /> }
+                        <div className='button-row'>
+                            <button className='button big-button'>
+                                { !loading && <span>Update</span> }
+                                { loading && <span disabled>Updating...</span> }
+                            </button>
+                            <button className='button delete-button' onClick={e => handleDelete(e)}>
+                                <MdDelete className='icon'/>
+                            </button>
+                        </div>
                         <TextField
                             className='input-field'
                             label="Shop name"
@@ -330,16 +339,6 @@ const Shop = () => {
                             size={800}
                             quality={60}
                         />
-                        { errorMessage && <AlertMessage text={ errorMessage } /> }
-                        <div className='button-row'>
-                            <button className='button big-button'>
-                                { !loading && <span>Update</span> }
-                                { loading && <span disabled>Updating...</span> }
-                            </button>
-                            <button className='button delete-button' onClick={e => handleDelete(e)}>
-                                <MdDelete className='icon'/>
-                            </button>
-                        </div>
                     </form>
                 </div>
                 }

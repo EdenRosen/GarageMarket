@@ -38,9 +38,6 @@ const AuthProvider = ({ children }) => {
             // const credential = GoogleAuthProvider.credentialFromResult(result)
             const user = result.user
             user.getIdToken().then(token => {
-                console.log(1111);
-                console.log(user);
-                
                 axios.post(
                     `register-google`,
                     { email: user.email },
@@ -75,7 +72,6 @@ const AuthProvider = ({ children }) => {
                     'users'
                 )
                 .then(res => {
-                    console.log(11117);
                     const users = res.data
                     var appUser = users.find(e => e.email === user.email)
                     if (!appUser) return

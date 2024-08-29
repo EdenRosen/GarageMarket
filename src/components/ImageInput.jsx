@@ -23,16 +23,6 @@ const ImageInput = ({ handleImage, defaultImage=null, text='', size=1000, qualit
 
   const onDrop = useCallback(acceptedFiles => {
     acceptedFiles.forEach((file) => {
-      // const reader = new FileReader()
-
-      // reader.readAsDataURL(file)
-      // reader.onabort = () => console.log('file reading was aborted')
-      // reader.onerror = () => console.log('file reading has failed')
-      // reader.onload = () => {
-      //   const binaryStr = reader.result
-      //   setFile({ data: binaryStr, url: URL.createObjectURL(file) })
-
-      // }
       Resizer.imageFileResizer(
         file, // the file from input
         size, // max width
@@ -49,7 +39,7 @@ const ImageInput = ({ handleImage, defaultImage=null, text='', size=1000, qualit
 
 
     })
-  }, [quality, size])
+  }, [quality, size, compressFormat, updateFile])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: {

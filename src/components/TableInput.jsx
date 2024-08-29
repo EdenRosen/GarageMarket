@@ -20,7 +20,6 @@ const TableInput = ({ handleTable, defaultTable=[] }) => {
 		
 		if (newTable[table.length-1].key != null && newTable[table.length-1].key !== '') {
 			newTable.push({key:'',value:''})
-			console.log('pushed');
 		} else {
 			while (newTable.length >= 2 && (newTable[newTable.length-2].key === '' ||
 				newTable[newTable.length-2].key == null)) {

@@ -123,12 +123,12 @@ const Item = ({ show=false }) => {
     }
 
     const handleDelete = () => {
-        navigate(`/shop/${shop.id}`)
         axios.delete(
             `items/${id}`,
             { headers: { Authorization: `Bearer ${getToken()}` } },
         ).then(() => {
             refetch()
+            navigate(`/shop/${shop.id}`)
         }).catch(e => {
             console.log(e);
         })
@@ -153,9 +153,11 @@ const Item = ({ show=false }) => {
         if (name !== '') { updateInfo.name = name }
         updateInfo.currency = currency
         updateInfo.price = price
-        updateInfo.CategoryId = category.value
+        updateInfo.CategoryId = category?.value
         updateInfo.description = description
         updateInfo.tableData = JSON.stringify(table)
+        console.log(image?.length);
+        
         updateInfo.image = image
         var shopStyleUpdate = {
             collection: collection,
@@ -259,8 +261,7 @@ const Item = ({ show=false }) => {
                                 onClick={() => {
                                     setShowSeller(true)
                                 }
-                            }
-                            >Show seller</button>
+                            }>Show seller</button>
                             : 
                             <div className='user-display'>
                                 <div className='title'>
@@ -276,6 +277,13 @@ const Item = ({ show=false }) => {
                                     <div>{user.email}</div>
                                     <div>{user.phone}</div>
                                 </div>
+                                {/* <button
+                                    className="show-seller-button"
+                                    type="button"
+                                    onClick={() => {
+                                        setShowSeller(true)
+                                    }
+                                }>Send buy request</button> */}
                             </div>
                         }
                         
@@ -321,6 +329,16 @@ const Item = ({ show=false }) => {
                 <div className=''>
                     <h1>Update Info</h1>
                     <form onSubmit={handleSubmit}>
+                        { errorMessage && <AlertMessage text={ errorMessage } /> }
+                        <div className='button-row'>
+                            <button className='button big-button'>
+                                { !loading && <span>Update</span> }
+                                { loading && <span disabled>Updating...</span> }
+                            </button>
+                            <button className='button delete-button' onClick={handleDelete}>
+                                <MdDelete className='icon'/>
+                            </button>
+                        </div>
                         <TextField
                             className='input-field'
                             label="Name"
@@ -391,20 +409,9 @@ const Item = ({ show=false }) => {
                             handleImage={ handleImage }
                             defaultImage={ item.image }
                             text='Add item picture'
-                            size={600}
-                            // quality={60}
-                                compressFormat='PNG'
+                            size={500}
+                            quality={50}
                         />
-                        { errorMessage && <AlertMessage text={ errorMessage } /> }
-                        <div className='button-row'>
-                            <button className='button big-button'>
-                                { !loading && <span>Update</span> }
-                                { loading && <span disabled>Updating...</span> }
-                            </button>
-                            <button className='button delete-button' onClick={handleDelete}>
-                                <MdDelete className='icon'/>
-                            </button>
-                        </div>
                     </form>
                 </div>
                 }

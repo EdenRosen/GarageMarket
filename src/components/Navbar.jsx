@@ -37,6 +37,7 @@ const Navbar = ({ searchAction }) => {
                 <div className="menu-links">
                     <NavLink to="/">Home</NavLink>
                     { !currentUser && <NavLink to="/login">Login</NavLink> }
+                    {  currentUser && <NavLink to="//create-shop">Create shop</NavLink> }
                     { currentUser && <NavLink to="/user/me">Profile</NavLink> }
                     <NavLink to="/items">Items</NavLink>
                     <NavLink to="/shops">Shops</NavLink>
